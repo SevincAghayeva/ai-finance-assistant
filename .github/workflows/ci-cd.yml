@@ -24,8 +24,9 @@ jobs:
 
       # CI part
       - name: Build and Run Tests with Gradle
+        env:
+          GROQ_API_KEY: "dummy_key_for_testing_purposes"
         run: ./gradlew clean build
-
       # CD part- if tests are passed deploy
       - name: Trigger Render Deployment
         if: success()
